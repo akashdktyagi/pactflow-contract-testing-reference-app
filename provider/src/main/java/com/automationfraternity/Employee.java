@@ -16,6 +16,7 @@ public class Employee {
     @Id
     @GeneratedValue
     Integer id;
+    Integer empId;
     String name;
     Integer age;
     String email;

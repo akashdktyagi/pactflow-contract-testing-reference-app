@@ -1,0 +1,10 @@
+server:
+  port: '8081'
+
+logging:
+  level:
+    web: TRACE
+    org:
+      springframework:
+        web: TRACE
+
