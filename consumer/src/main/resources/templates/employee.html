@@ -1,10 +1,51 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-<p th:text="'Hello, ' + ${name} + '!'" />
-</body>
+    <head>
+        <title>Employee Management Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg .tg-jgo1{border-color:#34cdf9;text-align:left;vertical-align:top}
+            .tg .tg-xl7w{border-color:#34cdf9;font-family:Verdana, Geneva, sans-serif !important;text-align:center;vertical-align:top}
+            .tg .tg-0lax{text-align:left;vertical-align:top}
+            .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+        </style>
+    </head>
+    <body>
+        <p>Hello, List of All Employees </p>
+
+        <table class="tg">
+            <thead>
+            <tr>
+                <th class="tg-xl7w">ID</th>
+                <th class="tg-xl7w">Emp ID</th>
+                <th class="tg-xl7w">Name</th>
+                <th class="tg-xl7w">Age</th>
+                <th class="tg-xl7w">Email</th>
+                <th class="tg-xl7w">Phone</th>
+                <th class="tg-xl7w">Department</th>
+                <th class="tg-xl7w">Salary</th>
+                <th class="tg-xl7w">Designation</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="emp : ${employees}">
+                <td class="tg-0pky" th:text="${emp.id}"></td>
+                <td class="tg-0pky" th:text="${emp.empId}"></td>
+                <td class="tg-0pky" th:text="${emp.name}"></td>
+                <td class="tg-0pky" th:text="${emp.age}"></td>
+                <td class="tg-0pky" th:text="${emp.email}"></td>
+                <td class="tg-0pky" th:text="${emp.phone}"></td>
+                <td class="tg-0pky" th:text="${emp.department}"></td>
+                <td class="tg-0pky" th:text="${emp.salary}"></td>
+                <td class="tg-0pky" th:text="${emp.designation}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </body>
 </html>
