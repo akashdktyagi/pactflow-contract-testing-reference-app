@@ -48,7 +48,7 @@ class EmployeeServiceTest {
 
         List<Employee> employeeListActual = employeeService.getListOfEmployees();
 
-        Assertions.assertThat(employeeListExpected).isEQu.isEqualTo(employeeListActual);
+        Assertions.assertThat(employeeListExpected).isEqualTo(employeeListActual);
 //        assertEquals(employeeListExpected,employeeListActual);
 
     }

@@ -12,6 +12,7 @@ import javax.persistence.Id;
 @ToString
 @Builder(setterPrefix = "with")
 @Entity
+@EqualsAndHashCode
 public class Employee {
     @Id
     @GeneratedValue
