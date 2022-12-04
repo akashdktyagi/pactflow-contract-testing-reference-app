@@ -15,7 +15,6 @@ import java.util.List;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 @WireMockTest(httpPort = 8083)
 class EmployeeServiceTest {
@@ -43,7 +42,7 @@ class EmployeeServiceTest {
         Employee employee1 = Employee.builder().withId(13).withEmpId(2).withName("Amit").withAge(56).withEmail("b@b.com").withDepartment("IT").withDesignation("manager").withPhone("2324235").withSalary("10000").build();
         Employee employee2 = Employee.builder().withId(14).withEmpId(3).withName("Sumit").withAge(56).withEmail("s@s.com").withDepartment("finance").withDesignation("director").withPhone("2324235").withSalary("20000").build();
         List<Employee> employeeListExpected = Arrays.asList(employee,employee1,employee2);
-        List<Employee> employeeListActual = employeeService.getListOfEmployees();
+        List<Employee> employeeListActual = Arrays.asList(employeeService.getListOfEmployees().getBody());
         Assertions.assertThat(employeeListExpected).isEqualTo(employeeListActual);
 
     }

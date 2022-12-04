@@ -5,9 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-import java.util.List;
-
 @Service
 public class EmployeeService {
 
@@ -18,10 +15,12 @@ public class EmployeeService {
         this.restTemplate = restTemplate;
     }
 
-    public List<Employee> getListOfEmployees(){
-        ResponseEntity<Employee[]>  responseEntity = restTemplate.getForEntity("/employee",Employee[].class);
-        return Arrays.asList(responseEntity.getBody());
-//        restTemplate.exchange("/employee", HttpMethod.GET,new ParameterizedTypeReference<List<Employee>(){})
+    public ResponseEntity<Employee[]> getListOfEmployees(){
+        return restTemplate.getForEntity("/employee",Employee[].class);
+    }
+
+    public ResponseEntity<Employee> getEmployeeByEmpID(String empID){
+        return restTemplate.getForEntity("/employee/"+empID,Employee.class);
     }
 
 }
