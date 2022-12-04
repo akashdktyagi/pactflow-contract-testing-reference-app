@@ -1,9 +1,7 @@
 package com.automationfraternity;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -21,7 +19,11 @@ public class Employee {
     String name;
     Integer age;
     String email;
-    String phone;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "mode_id", referencedColumnName = "id")
+    ModeOfCommunication modeOfCommunication;
+
     String department;
     String salary;
     String designation;
