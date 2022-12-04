@@ -1,0 +1,145 @@
+{
+  "consumer": {
+    "name": "FrontendApp"
+  },
+  "interactions": [
+    {
+      "description": "get all employees",
+      "providerStates": [
+        {
+          "name": "employee exists"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/employee"
+      },
+      "response": {
+        "body": [
+          {
+            "age": "78",
+            "department": "HR",
+            "designation": "Manager",
+            "email": "a@a.com",
+            "empId": "123456",
+            "id": "123",
+            "name": "Akash",
+            "phone": "342424",
+            "salary": "5000"
+          },
+          {
+            "age": "78",
+            "department": "HR",
+            "designation": "Manager",
+            "email": "a@a.com",
+            "empId": "123456",
+            "id": "123",
+            "name": "Akash",
+            "phone": "342424",
+            "salary": "5000"
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type",
+                  "min": 2
+                }
+              ]
+            },
+            "$[*].age": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].department": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].designation": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].email": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].empId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].phone": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].salary": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-jvm": {
+      "version": "4.2.9"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "EmployeeServiceAPI"
+  }
+}

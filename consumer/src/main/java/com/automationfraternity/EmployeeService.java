@@ -20,7 +20,7 @@ public class EmployeeService {
     }
 
     public ResponseEntity<Employee> getEmployeeByEmpID(String empID){
-        return restTemplate.getForEntity("/employee/"+empID,Employee.class);
+        return restTemplate.getForEntity("/employee/{id}",Employee.class,empID);
     }
 
 }
