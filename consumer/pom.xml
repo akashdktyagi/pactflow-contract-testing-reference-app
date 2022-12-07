@@ -16,5 +16,12 @@
         <maven.compiler.target>15</maven.compiler.target>
     </properties>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>au.com.dius.pact.consumer</groupId>
+            <artifactId>junit5</artifactId>
+            <version>4.2.9</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>

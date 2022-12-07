@@ -1,9 +1,10 @@
 package com.automationfraternity;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.*;
 
 @Service
 public class EmployeeService {
@@ -20,7 +21,13 @@ public class EmployeeService {
     }
 
     public ResponseEntity<Employee> getEmployeeByEmpID(String empID){
-        return restTemplate.getForEntity("/employee/{id}",Employee.class,empID);
+        try{
+            return restTemplate.getForEntity("/employee/{empID}",Employee.class,empID);
+        }catch(RestClientException e){
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+
     }
 
 }

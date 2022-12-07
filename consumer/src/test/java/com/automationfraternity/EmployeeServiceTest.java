@@ -1,5 +1,7 @@
 package com.automationfraternity;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.junit5.WireMockRuntimeInfo;
@@ -8,6 +10,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
@@ -44,6 +47,34 @@ class EmployeeServiceTest {
         List<Employee> employeeListExpected = Arrays.asList(employee,employee1,employee2);
         List<Employee> employeeListActual = Arrays.asList(employeeService.getListOfEmployees().getBody());
         Assertions.assertThat(employeeListExpected).isEqualTo(employeeListActual);
+    }
 
+    @Test
+    public void test_get_employee_by_emp_id(WireMockRuntimeInfo wireMockRuntimeInfo) throws JsonProcessingException {
+        Employee employee = Employee.builder().withId(1).withEmpId(1).withName("Akash").withAge(56).withEmail("a@a.com").withDepartment("HR").withDesignation("recruiter").withPhone("2324235").withSalary("15000").build();
+        ObjectMapper objectMapper = new ObjectMapper();
+        String body = objectMapper.writeValueAsString(employee);
+
+        WireMock wireMock  = wireMockRuntimeInfo.getWireMock();
+        wireMock.register(get((urlPathEqualTo("/employee/1")))
+                .willReturn(aResponse()
+                        .withStatus(200)
+                        .withHeader("Content-Type", "application/json")
+                        .withBody(body)
+                ));
+        ResponseEntity<Employee> responseEntity = employeeService.getEmployeeByEmpID("1");
+        Employee employeeActual = (Employee) responseEntity.getBody();
+        Assertions.assertThat(employee).isEqualTo(employeeActual);
+    }
+
+    @Test
+    public void test_employee_by_id_return_404_if_not_found(WireMockRuntimeInfo wireMockRuntimeInfo) throws JsonProcessingException {
+        WireMock wireMock  = wireMockRuntimeInfo.getWireMock();
+        wireMock.register(get((urlPathEqualTo("/employee/9999")))
+                .willReturn(aResponse()
+                        .withStatus(404)
+                ));
+        ResponseEntity<Employee> responseEntity = employeeService.getEmployeeByEmpID("9999");
+        Assertions.assertThat(responseEntity.getStatusCodeValue()).isEqualTo(404);
     }
 }

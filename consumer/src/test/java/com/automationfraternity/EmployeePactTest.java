@@ -1,6 +1,5 @@
 package com.automationfraternity;
 
-
 import au.com.dius.pact.consumer.MockServer;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.consumer.junit5.PactConsumerTestExt;
@@ -37,7 +36,7 @@ public class EmployeePactTest {
     }
 
     @Pact(consumer = "FrontendApp", provider = "EmployeeServiceAPI")
-    public RequestResponsePact getAllEmployee(PactDslWithProvider builder){
+    public RequestResponsePact GeneratePactFor_GetAllEmployee(PactDslWithProvider builder){
         return builder.given("employee exists")
                 .uponReceiving("get all employees")
                 .method("GET")
@@ -61,8 +60,7 @@ public class EmployeePactTest {
     }
 
     @Pact(consumer = "FrontendApp", provider = "EmployeeServiceAPI")
-    @Disabled
-    public RequestResponsePact return404IfEmpIdNotFound(PactDslWithProvider builder){
+    public RequestResponsePact GeneratePactFor_Return404IfEmpIdNotFoundPact(PactDslWithProvider builder){
         return builder.given("Employee GET: the employee does not exist" )
                 .uponReceiving("get employee by emp id")
                 .method("GET")
@@ -73,12 +71,11 @@ public class EmployeePactTest {
     }
 
     @Pact(consumer = "FrontendApp", provider = "EmployeeServiceAPI")
-    @Disabled
-    public RequestResponsePact getEmployeeByEmpID(PactDslWithProvider builder){
+    public RequestResponsePact GeneratePactFor_GetEmployeeByEmpID(PactDslWithProvider builder){
         return builder.given("employee exists")
                 .uponReceiving("get employee by emp id")
                 .method("GET")
-                .path(String.format("/address/%s", 10))
+                .path(String.format("/employee/%s", 10))
                 .willRespondWith()
                 .status(200)
                 .headers(headers())
@@ -97,7 +94,7 @@ public class EmployeePactTest {
     }
 
     @Test
-    @PactTestFor(pactMethod = "getAllEmployee")
+    @PactTestFor(pactMethod = "GeneratePactFor_GetAllEmployee")
     public void testGetAllEmployee(MockServer mockServer){
         RestTemplate restTemplate = new RestTemplateBuilder().rootUri(mockServer.getUrl()).build();
         EmployeeService employeeService = new EmployeeService(restTemplate);
@@ -120,8 +117,7 @@ public class EmployeePactTest {
     }
 
     @Test
-    @Disabled
-    @PactTestFor(pactMethod = "getEmployeeByEmpID")
+    @PactTestFor(pactMethod = "GeneratePactFor_GetEmployeeByEmpID")
     public void testGetEmployeeByEmpID(MockServer mockServer){
         RestTemplate restTemplate = new RestTemplateBuilder().rootUri(mockServer.getUrl()).build();
         EmployeeService employeeService = new EmployeeService(restTemplate);
@@ -142,13 +138,11 @@ public class EmployeePactTest {
     }
 
     @Test
-    @Disabled
-    @PactTestFor(pactMethod = "return404IfEmpIdNotFound")
+    @PactTestFor(pactMethod = "GeneratePactFor_Return404IfEmpIdNotFoundPact")
     public void testReturn404WhenEmployeeIDNotFound(MockServer mockServer){
         RestTemplate restTemplate = new RestTemplateBuilder().rootUri(mockServer.getUrl()).build();
         EmployeeService employeeService = new EmployeeService(restTemplate);
         ResponseEntity<Employee> responseEntity = employeeService.getEmployeeByEmpID("9999");
         Assertions.assertThat(responseEntity.getStatusCodeValue()).isEqualTo(404);
     }
-
 }
