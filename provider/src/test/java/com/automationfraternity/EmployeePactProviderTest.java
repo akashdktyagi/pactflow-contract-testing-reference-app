@@ -14,7 +14,7 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @Provider("EmployeeServiceAPI")
-@PactFolder("pacts")
+@PactFolder("/Users/akashtyagi/IdeaProjects/pactflow-contract-testing-reference-app/provider/src/test/resources/pacts")
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class EmployeePactProviderTest {
@@ -32,9 +32,20 @@ class EmployeePactProviderTest {
         context.verifyInteraction();
     }
 
-    @State("products exist")
-    void toProductsExistState() {
+    @State("emp id exists")
+    void employeeDoesNotExistWhenSearchedWithEmpId() {
 
     }
+
+    @State("employee id does not exist")
+    void allEmployeeExists() {
+
+    }
+
+    @State("some employee exists")
+    void employeeExistByEmpId() {
+
+    }
+
 
 }

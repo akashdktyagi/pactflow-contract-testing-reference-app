@@ -19,4 +19,14 @@ public class EmployeeService {
         listOfEmployee.add(employee2);
         return listOfEmployee;
     }
+
+    public Employee getEmployeeWithEmpID(String empID){
+        if (empID.equalsIgnoreCase("1"))
+            return Employee.builder().withId(1).withEmpId(1).withName("Akash").withAge(56).withEmail("a@a.com").withDepartment("HR").withDesignation("recruiter").withModeOfCommunication(ModeOfCommunication.builder().withMobile("1234").withPhone("34535").withHomePhone("34535").build()).withSalary("15000").build();
+        else if (empID.equalsIgnoreCase("2")){
+            return Employee.builder().withId(2).withEmpId(2).withName("Amit").withAge(56).withEmail("a@a.com").withDepartment("HR").withDesignation("recruiter").withModeOfCommunication(ModeOfCommunication.builder().withMobile("1234").withPhone("34535").withHomePhone("34535").build()).withSalary("15000").build();
+        }else{
+         return null;
+        }
+    }
 }

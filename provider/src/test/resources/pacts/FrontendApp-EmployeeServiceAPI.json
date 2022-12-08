@@ -4,10 +4,130 @@
   },
   "interactions": [
     {
+      "description": "get employee by emp id",
+      "providerStates": [
+        {
+          "name": "emp id exists"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/employee/10"
+      },
+      "response": {
+        "body": {
+          "age": "78",
+          "department": "HR",
+          "designation": "Manager",
+          "email": "a@a.com",
+          "empId": "10",
+          "id": "123",
+          "name": "Akash",
+          "phone": "342424",
+          "salary": "5000"
+        },
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "matchingRules": {
+          "body": {
+            "$.age": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.department": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.designation": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.email": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.empId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.phone": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.salary": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "get employee by emp id",
+      "providerStates": [
+        {
+          "name": "employee id does not exist"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/employee/9999"
+      },
+      "response": {
+        "status": 404
+      }
+    },
+    {
       "description": "get all employees",
       "providerStates": [
         {
-          "name": "employee exists"
+          "name": "some employee exists"
         }
       ],
       "request": {

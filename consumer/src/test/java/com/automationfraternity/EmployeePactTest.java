@@ -37,7 +37,7 @@ public class EmployeePactTest {
 
     @Pact(consumer = "FrontendApp", provider = "EmployeeServiceAPI")
     public RequestResponsePact GeneratePactFor_GetAllEmployee(PactDslWithProvider builder){
-        return builder.given("employee exists")
+        return builder.given("some employee exists")
                 .uponReceiving("get all employees")
                 .method("GET")
                 .path("/employee")
@@ -61,7 +61,7 @@ public class EmployeePactTest {
 
     @Pact(consumer = "FrontendApp", provider = "EmployeeServiceAPI")
     public RequestResponsePact GeneratePactFor_Return404IfEmpIdNotFoundPact(PactDslWithProvider builder){
-        return builder.given("Employee GET: the employee does not exist" )
+        return builder.given("employee id does not exist" )
                 .uponReceiving("get employee by emp id")
                 .method("GET")
                 .path("/employee/9999")
@@ -72,7 +72,7 @@ public class EmployeePactTest {
 
     @Pact(consumer = "FrontendApp", provider = "EmployeeServiceAPI")
     public RequestResponsePact GeneratePactFor_GetEmployeeByEmpID(PactDslWithProvider builder){
-        return builder.given("employee exists")
+        return builder.given("emp id exists")
                 .uponReceiving("get employee by emp id")
                 .method("GET")
                 .path(String.format("/employee/%s", 10))
