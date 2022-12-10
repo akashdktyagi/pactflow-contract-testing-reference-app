@@ -24,4 +24,23 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>au.com.dius.pact.provider</groupId>
+                <artifactId>maven</artifactId>
+                <version>4.1.11</version>
+                <configuration>
+                    <pactDirectory>/Users/akashtyagi/IdeaProjects/pactflow-contract-testing-reference-app/provider/src/test/resources/pacts</pactDirectory> <!-- Defaults to ${project.build.directory}/pacts -->
+                    <pactBrokerUrl>http://localhost:8000</pactBrokerUrl>
+                    <pactBrokerUsername>pact_workshop</pactBrokerUsername>
+                    <pactBrokerPassword>pact_workshop</pactBrokerPassword>
+<!--                    <projectVersion>${git.shorthash}</projectVersion> &lt;!&ndash; Defaults to ${project.version}, or you can generate your own version from git &ndash;&gt;-->
+<!--                    <trimSnapshot>true</trimSnapshot> &lt;!&ndash; Defaults to false &ndash;&gt;-->
+<!--                    <skipPactPublish>${pact.skipPublish}</skipPactPublish> &lt;!&ndash; Defaults to false &ndash;&gt;-->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
