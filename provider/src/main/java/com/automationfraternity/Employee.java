@@ -19,10 +19,6 @@ public class Employee {
     String name;
     Integer age;
     String email;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "mode_id", referencedColumnName = "id")
-    ModeOfCommunication modeOfCommunication;
     String phone;
     String department;
     String salary;
