@@ -27,7 +27,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(PactConsumerTestExt.class)
-public class EmployeePactTest {
+public class ConsumerEmployeePactTest {
 
     private Map<String, String> headers() {
         Map<String, String> headers = new HashMap<>();
@@ -45,16 +45,16 @@ public class EmployeePactTest {
                 .status(200)
                 .headers(headers())
                 .body(newJsonArrayMinLike(2, array ->
-                        array.object(object -> {
-                            object.stringType("age", "78");
-                            object.stringType("department", "HR");
-                            object.stringType("designation", "Manager");
-                            object.stringType("email", "a@a.com");
-                            object.stringType("empId", "123456");
-                            object.stringType("id", "123");
-                            object.stringType("name", "Akash");
-                            object.stringType("phone", "342424");
-                            object.stringType("salary", "5000");
+                        array.object(o -> {
+                            o.integerType("age", 78);
+                            o.stringType("department", "HR");
+                            o.stringType("designation", "Manager");
+                            o.stringType("email", "a@a.com");
+                            o.integerType("empId", 10);
+                            o.integerType("id", 123);
+                            o.stringType("name", "Akash");
+                            o.stringType("phone", "342424");
+                            o.stringType("salary", "5000");
                         })).build())
                 .toPact();
     }
@@ -62,7 +62,7 @@ public class EmployeePactTest {
     @Pact(consumer = "FrontendApp", provider = "EmployeeServiceAPI")
     public RequestResponsePact GeneratePactFor_Return404IfEmpIdNotFoundPact(PactDslWithProvider builder){
         return builder.given("employee id does not exist" )
-                .uponReceiving("get employee by emp id")
+                .uponReceiving("get employee by emp id which does not exist")
                 .method("GET")
                 .path("/employee/9999")
                 .willRespondWith()
@@ -73,19 +73,19 @@ public class EmployeePactTest {
     @Pact(consumer = "FrontendApp", provider = "EmployeeServiceAPI")
     public RequestResponsePact GeneratePactFor_GetEmployeeByEmpID(PactDslWithProvider builder){
         return builder.given("emp id exists")
-                .uponReceiving("get employee by emp id")
+                .uponReceiving("get employee by emp id which exists")
                 .method("GET")
                 .path(String.format("/employee/%s", 10))
                 .willRespondWith()
                 .status(200)
                 .headers(headers())
                 .body(newJsonBody((o) -> {
-                            o.stringType("age", "78");
+                            o.integerType("age", 78);
                             o.stringType("department", "HR");
                             o.stringType("designation", "Manager");
                             o.stringType("email", "a@a.com");
-                            o.stringType("empId", "10");
-                            o.stringType("id", "123");
+                            o.integerType("empId", 10);
+                            o.integerType("id", 123);
                             o.stringType("name", "Akash");
                             o.stringType("phone", "342424");
                             o.stringType("salary", "5000");
@@ -101,7 +101,7 @@ public class EmployeePactTest {
 
         Employee employee = Employee.builder()
                 .withId(123)
-                .withEmpId(123456)
+                .withEmpId(10)
                 .withName("Akash")
                 .withAge(78)
                 .withEmail("a@a.com")

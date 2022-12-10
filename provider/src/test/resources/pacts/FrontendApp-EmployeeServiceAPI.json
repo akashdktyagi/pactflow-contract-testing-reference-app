@@ -4,7 +4,7 @@
   },
   "interactions": [
     {
-      "description": "get employee by emp id",
+      "description": "get employee by emp id which exists",
       "providerStates": [
         {
           "name": "emp id exists"
@@ -16,12 +16,12 @@
       },
       "response": {
         "body": {
-          "age": "78",
+          "age": 78,
           "department": "HR",
           "designation": "Manager",
           "email": "a@a.com",
-          "empId": "10",
-          "id": "123",
+          "empId": 10,
+          "id": 123,
           "name": "Akash",
           "phone": "342424",
           "salary": "5000"
@@ -35,7 +35,7 @@
               "combine": "AND",
               "matchers": [
                 {
-                  "match": "type"
+                  "match": "integer"
                 }
               ]
             },
@@ -67,7 +67,7 @@
               "combine": "AND",
               "matchers": [
                 {
-                  "match": "type"
+                  "match": "integer"
                 }
               ]
             },
@@ -75,7 +75,7 @@
               "combine": "AND",
               "matchers": [
                 {
-                  "match": "type"
+                  "match": "integer"
                 }
               ]
             },
@@ -109,7 +109,7 @@
       }
     },
     {
-      "description": "get employee by emp id",
+      "description": "get employee by emp id which does not exist",
       "providerStates": [
         {
           "name": "employee id does not exist"
@@ -137,23 +137,23 @@
       "response": {
         "body": [
           {
-            "age": "78",
+            "age": 78,
             "department": "HR",
             "designation": "Manager",
             "email": "a@a.com",
-            "empId": "123456",
-            "id": "123",
+            "empId": 10,
+            "id": 123,
             "name": "Akash",
             "phone": "342424",
             "salary": "5000"
           },
           {
-            "age": "78",
+            "age": 78,
             "department": "HR",
             "designation": "Manager",
             "email": "a@a.com",
-            "empId": "123456",
-            "id": "123",
+            "empId": 10,
+            "id": 123,
             "name": "Akash",
             "phone": "342424",
             "salary": "5000"
@@ -177,7 +177,7 @@
               "combine": "AND",
               "matchers": [
                 {
-                  "match": "type"
+                  "match": "integer"
                 }
               ]
             },
@@ -209,7 +209,7 @@
               "combine": "AND",
               "matchers": [
                 {
-                  "match": "type"
+                  "match": "integer"
                 }
               ]
             },
@@ -217,7 +217,7 @@
               "combine": "AND",
               "matchers": [
                 {
-                  "match": "type"
+                  "match": "integer"
                 }
               ]
             },
