@@ -12,18 +12,15 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import static au.com.dius.pact.consumer.dsl.LambdaDsl.newJsonArrayMinLike;
 import static au.com.dius.pact.consumer.dsl.LambdaDsl.newJsonBody;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(PactConsumerTestExt.class)
-public class ConsumerEmployeePactTest {
+public class ConsumerPactTest {
 
     private Map<String, String> headers() {
         Map<String, String> headers = new HashMap<>();
@@ -31,7 +28,7 @@ public class ConsumerEmployeePactTest {
         return headers;
     }
 
-    @Pact(consumer = "FrontendApp", provider = "EmployeeServiceAPI")
+    @Pact(consumer = "EmployerServiceAPI", provider = "EmployeeServiceAPI")
     public RequestResponsePact GeneratePactFor_GetAllEmployee(PactDslWithProvider builder){
         return builder.given("some employee exists")
                 .uponReceiving("get all employees")
@@ -55,7 +52,7 @@ public class ConsumerEmployeePactTest {
                 .toPact();
     }
 
-    @Pact(consumer = "FrontendApp", provider = "EmployeeServiceAPI")
+    @Pact(consumer = "EmployerServiceAPI", provider = "EmployeeServiceAPI")
     public RequestResponsePact GeneratePactFor_Return404IfEmpIdNotFoundPact(PactDslWithProvider builder){
         return builder.given("employee id does not exist" )
                 .uponReceiving("get employee by emp id which does not exist")
@@ -66,7 +63,7 @@ public class ConsumerEmployeePactTest {
                 .toPact();
     }
 
-    @Pact(consumer = "FrontendApp", provider = "EmployeeServiceAPI")
+    @Pact(consumer = "EmployerServiceAPI", provider = "EmployeeServiceAPI")
     public RequestResponsePact GeneratePactFor_GetEmployeeByEmpID(PactDslWithProvider builder){
         return builder.given("emp id exists")
                 .uponReceiving("get employee by emp id which exists")

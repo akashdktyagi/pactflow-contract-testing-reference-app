@@ -1,6 +1,6 @@
 {
   "consumer": {
-    "name": "FrontendApp"
+    "name": "EmployerServiceAPI"
   },
   "interactions": [
     {
