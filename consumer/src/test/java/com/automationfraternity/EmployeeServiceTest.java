@@ -19,13 +19,13 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 @WireMockTest(httpPort = 8083)
 class EmployeeServiceTest {
 
-    EmployeeService employeeService;
+    EmployerService employeeService;
     RestTemplate restTemplate;
 
     @BeforeEach
     public void setUp(WireMockRuntimeInfo wireMockRuntimeInfo){
         restTemplate = new RestTemplateBuilder().rootUri(wireMockRuntimeInfo.getHttpBaseUrl()).build();
-        employeeService = new EmployeeService(restTemplate);
+        employeeService = new EmployerService(restTemplate);
     }
 
     @Test

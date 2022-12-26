@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.*;
 
 @Service
-public class EmployeeService {
+public class EmployerService {
 
     RestTemplate restTemplate;
 
     @Autowired
-    public EmployeeService(RestTemplate restTemplate) {
+    public EmployerService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 

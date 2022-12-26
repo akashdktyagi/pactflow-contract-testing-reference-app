@@ -6,10 +6,7 @@ import au.com.dius.pact.consumer.junit5.PactConsumerTestExt;
 import au.com.dius.pact.consumer.junit5.PactTestFor;
 import au.com.dius.pact.core.model.RequestResponsePact;
 import au.com.dius.pact.core.model.annotations.Pact;
-import com.github.tomakehurst.wiremock.client.WireMock;
-import com.github.tomakehurst.wiremock.junit5.WireMockRuntimeInfo;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -23,7 +20,6 @@ import java.util.Map;
 
 import static au.com.dius.pact.consumer.dsl.LambdaDsl.newJsonArrayMinLike;
 import static au.com.dius.pact.consumer.dsl.LambdaDsl.newJsonBody;
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(PactConsumerTestExt.class)
@@ -97,7 +93,7 @@ public class ConsumerEmployeePactTest {
     @PactTestFor(pactMethod = "GeneratePactFor_GetAllEmployee")
     public void testGetAllEmployee(MockServer mockServer){
         RestTemplate restTemplate = new RestTemplateBuilder().rootUri(mockServer.getUrl()).build();
-        EmployeeService employeeService = new EmployeeService(restTemplate);
+        EmployerService employeeService = new EmployerService(restTemplate);
 
         Employee employee = Employee.builder()
                 .withId(123)
@@ -120,7 +116,7 @@ public class ConsumerEmployeePactTest {
     @PactTestFor(pactMethod = "GeneratePactFor_GetEmployeeByEmpID")
     public void testGetEmployeeByEmpID(MockServer mockServer){
         RestTemplate restTemplate = new RestTemplateBuilder().rootUri(mockServer.getUrl()).build();
-        EmployeeService employeeService = new EmployeeService(restTemplate);
+        EmployerService employeeService = new EmployerService(restTemplate);
         Employee employee = Employee.builder()
                 .withId(123)
                 .withEmpId(10)
@@ -141,7 +137,7 @@ public class ConsumerEmployeePactTest {
     @PactTestFor(pactMethod = "GeneratePactFor_Return404IfEmpIdNotFoundPact")
     public void testReturn404WhenEmployeeIDNotFound(MockServer mockServer){
         RestTemplate restTemplate = new RestTemplateBuilder().rootUri(mockServer.getUrl()).build();
-        EmployeeService employeeService = new EmployeeService(restTemplate);
+        EmployerService employeeService = new EmployerService(restTemplate);
         ResponseEntity<Employee> responseEntity = employeeService.getEmployeeByEmpID("9999");
         Assertions.assertThat(responseEntity.getStatusCodeValue()).isEqualTo(404);
     }
