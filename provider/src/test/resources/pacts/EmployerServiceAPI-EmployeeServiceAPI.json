@@ -12,7 +12,7 @@
       ],
       "request": {
         "method": "GET",
-        "path": "/employee/10"
+        "path": "/employee/1"
       },
       "response": {
         "body": {
@@ -20,8 +20,8 @@
           "department": "HR",
           "designation": "Manager",
           "email": "a@a.com",
-          "empId": 10,
-          "id": 123,
+          "empId": 1,
+          "id": 1,
           "name": "Akash",
           "phone": "342424",
           "salary": "5000"
@@ -141,8 +141,8 @@
             "department": "HR",
             "designation": "Manager",
             "email": "a@a.com",
-            "empId": 10,
-            "id": 123,
+            "empId": 1,
+            "id": 1,
             "name": "Akash",
             "phone": "342424",
             "salary": "5000"
@@ -152,8 +152,8 @@
             "department": "HR",
             "designation": "Manager",
             "email": "a@a.com",
-            "empId": 10,
-            "id": 123,
+            "empId": 1,
+            "id": 1,
             "name": "Akash",
             "phone": "342424",
             "salary": "5000"

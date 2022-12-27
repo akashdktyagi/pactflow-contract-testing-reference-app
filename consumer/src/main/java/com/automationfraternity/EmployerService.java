@@ -25,7 +25,7 @@ public class EmployerService {
             return restTemplate.getForEntity("/employee/{empID}",Employee.class,empID);
         }catch(RestClientException e){
             e.printStackTrace();
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
 }

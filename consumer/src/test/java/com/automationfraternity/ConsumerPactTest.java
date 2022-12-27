@@ -43,8 +43,8 @@ public class ConsumerPactTest {
                             o.stringType("department", "HR");
                             o.stringType("designation", "Manager");
                             o.stringType("email", "a@a.com");
-                            o.integerType("empId", 10);
-                            o.integerType("id", 123);
+                            o.integerType("empId", 1);
+                            o.integerType("id", 1);
                             o.stringType("name", "Akash");
                             o.stringType("phone", "342424");
                             o.stringType("salary", "5000");
@@ -53,13 +53,13 @@ public class ConsumerPactTest {
     }
 
     @Pact(consumer = "EmployerServiceAPI", provider = "EmployeeServiceAPI")
-    public RequestResponsePact GeneratePactFor_Return404IfEmpIdNotFoundPact(PactDslWithProvider builder){
+    public RequestResponsePact GeneratePactFor_ReturnErrorIfEmpIdNotFoundPact(PactDslWithProvider builder){
         return builder.given("employee id does not exist" )
                 .uponReceiving("get employee by emp id which does not exist")
                 .method("GET")
                 .path("/employee/9999")
                 .willRespondWith()
-                .status(404)
+                .status(400)
                 .toPact();
     }
 
@@ -68,7 +68,7 @@ public class ConsumerPactTest {
         return builder.given("emp id exists")
                 .uponReceiving("get employee by emp id which exists")
                 .method("GET")
-                .path(String.format("/employee/%s", 10))
+                .path(String.format("/employee/%s", 1))
                 .willRespondWith()
                 .status(200)
                 .headers(headers())
@@ -77,8 +77,8 @@ public class ConsumerPactTest {
                             o.stringType("department", "HR");
                             o.stringType("designation", "Manager");
                             o.stringType("email", "a@a.com");
-                            o.integerType("empId", 10);
-                            o.integerType("id", 123);
+                            o.integerType("empId", 1);
+                            o.integerType("id", 1);
                             o.stringType("name", "Akash");
                             o.stringType("phone", "342424");
                             o.stringType("salary", "5000");
@@ -93,8 +93,8 @@ public class ConsumerPactTest {
         EmployerService employeeService = new EmployerService(restTemplate);
 
         Employee employee = Employee.builder()
-                .withId(123)
-                .withEmpId(10)
+                .withId(1)
+                .withEmpId(1)
                 .withName("Akash")
                 .withAge(78)
                 .withEmail("a@a.com")
@@ -115,8 +115,8 @@ public class ConsumerPactTest {
         RestTemplate restTemplate = new RestTemplateBuilder().rootUri(mockServer.getUrl()).build();
         EmployerService employeeService = new EmployerService(restTemplate);
         Employee employee = Employee.builder()
-                .withId(123)
-                .withEmpId(10)
+                .withId(1)
+                .withEmpId(1)
                 .withName("Akash")
                 .withAge(78)
                 .withEmail("a@a.com")
@@ -125,17 +125,17 @@ public class ConsumerPactTest {
                 .withPhone("342424")
                 .withSalary("5000").build();
 
-        ResponseEntity<Employee> responseEntity = employeeService.getEmployeeByEmpID("10");
+        ResponseEntity<Employee> responseEntity = employeeService.getEmployeeByEmpID("1");
         Assertions.assertThat(responseEntity.getBody()).isEqualTo(employee);
         Assertions.assertThat(responseEntity.getStatusCodeValue()).isEqualTo(200);
     }
 
     @Test
-    @PactTestFor(pactMethod = "GeneratePactFor_Return404IfEmpIdNotFoundPact")
-    public void testReturn404WhenEmployeeIDNotFound(MockServer mockServer){
+    @PactTestFor(pactMethod = "GeneratePactFor_ReturnErrorIfEmpIdNotFoundPact")
+    public void testReturnError_WhenEmployeeIDNotFound(MockServer mockServer){
         RestTemplate restTemplate = new RestTemplateBuilder().rootUri(mockServer.getUrl()).build();
         EmployerService employeeService = new EmployerService(restTemplate);
         ResponseEntity<Employee> responseEntity = employeeService.getEmployeeByEmpID("9999");
-        Assertions.assertThat(responseEntity.getStatusCodeValue()).isEqualTo(404);
+        Assertions.assertThat(responseEntity.getStatusCodeValue()).isEqualTo(400);
     }
 }
