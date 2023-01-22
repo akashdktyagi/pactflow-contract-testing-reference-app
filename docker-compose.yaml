@@ -1,3 +1,5 @@
+# This Docker Compose file is to bring the local Pact Server up.
+# In the production env, please use Pactflow.
 version: "3"
 
 services:
