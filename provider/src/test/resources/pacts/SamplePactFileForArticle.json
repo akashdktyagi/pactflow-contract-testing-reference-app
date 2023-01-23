@@ -1,0 +1,265 @@
+{
+  "consumer": {
+    "name": "EmployerServiceAPI"
+  },
+  "interactions": [
+    {
+      "description": "get employee by emp id which exists",
+      "providerStates": [
+        {
+          "name": "emp id exists"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/employee/1"
+      },
+      "response": {
+        "body": {
+          "age": 78,
+          "department": "HR",
+          "designation": "Manager",
+          "email": "a@a.com",
+          "empId": 1,
+          "id": 1,
+          "name": "Akash",
+          "phone": "342424",
+          "salary": "5000"
+        },
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "matchingRules": {
+          "body": {
+            "$.age": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "integer"
+                }
+              ]
+            },
+            "$.department": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.designation": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.email": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.empId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "integer"
+                }
+              ]
+            },
+            "$.id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "integer"
+                }
+              ]
+            },
+            "$.name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.phone": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$.salary": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "get employee by emp id which does not exist",
+      "providerStates": [
+        {
+          "name": "employee id does not exist"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/employee/9999"
+      },
+      "response": {
+        "status": 404
+      }
+    },
+    {
+      "description": "get all employees",
+      "providerStates": [
+        {
+          "name": "some employee exists"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/employee"
+      },
+      "response": {
+        "body": [
+          {
+            "age": 78,
+            "department": "HR",
+            "designation": "Manager",
+            "email": "a@a.com",
+            "empId": 1,
+            "id": 1,
+            "name": "Akash",
+            "phone": "342424",
+            "salary": "5000"
+          },
+          {
+            "age": 78,
+            "department": "HR",
+            "designation": "Manager",
+            "email": "a@a.com",
+            "empId": 1,
+            "id": 1,
+            "name": "Akash",
+            "phone": "342424",
+            "salary": "5000"
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type",
+                  "min": 2
+                }
+              ]
+            },
+            "$[*].age": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "integer"
+                }
+              ]
+            },
+            "$[*].department": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].designation": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].email": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].empId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "integer"
+                }
+              ]
+            },
+            "$[*].id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "integer"
+                }
+              ]
+            },
+            "$[*].name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].phone": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].salary": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-jvm": {
+      "version": "4.2.9"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "EmployeeServiceAPI"
+  }
+}
