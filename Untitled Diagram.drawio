@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-30T09:51:02.111Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="CA2zYbCuoZUCHwv6qnuU" version="21.1.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-30T10:24:35.569Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="IUP6GktBQ_h28vi3JKBQ" version="21.1.2" type="github">
   <diagram name="Page-1" id="hXCuwG57mc-VUr_f1HP0">
     <mxGraphModel dx="1290" dy="676" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -75,7 +75,7 @@
           <mxGeometry x="57.5" y="250" width="292.5" height="390" as="geometry" />
         </mxCell>
         <mxCell id="xuCpeB7rJ87xg6paWrhZ-28" value="unit tests" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="xuCpeB7rJ87xg6paWrhZ-25">
-          <mxGeometry x="62.5" y="50" width="147.5" height="80" as="geometry" />
+          <mxGeometry x="62.5" y="39" width="147.5" height="80" as="geometry" />
         </mxCell>
         <mxCell id="xuCpeB7rJ87xg6paWrhZ-29" value="integration tests" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="xuCpeB7rJ87xg6paWrhZ-25">
           <mxGeometry x="67.5" y="162.5" width="142.5" height="65" as="geometry" />
@@ -107,13 +107,13 @@
             <mxPoint x="540" y="1120" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="xuCpeB7rJ87xg6paWrhZ-36" value="Tests classes and methods.&lt;br&gt;Used for calculating Code coverage" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="560" y="1110" width="140" height="90" as="geometry" />
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-36" value="unit tests are written to test &lt;b&gt;classes&lt;/b&gt; and &lt;b&gt;methods&lt;/b&gt;.&amp;nbsp;Code coverage is calculated from here." style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="560" y="1080" width="140" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="xuCpeB7rJ87xg6paWrhZ-40" value="Tests your MVC. You bring SpringBootContext up and test your controller." style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="560" y="1220" width="140" height="90" as="geometry" />
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-40" value="To test the integration between your controller, service and model. These tests validates the top most layer of your api i.e. controller." style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="560" y="1220" width="240" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="xuCpeB7rJ87xg6paWrhZ-42" value="3rd type of test. This you write to validate how well you integrate to another API or Component.&lt;br&gt;These kind of tests gives you confidence to modify your API with out worrying about the impact your change would cause on other API." style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;fontStyle=1;size=0;position=0.17;position2=0.54;base=39;" vertex="1" parent="1">
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-42" value="3rd type of test. This you write to validate how well your api integrates to another API or Component.&lt;br&gt;These kind of tests gives you confidence to modify your API with out worrying about the impact your change would cause on other API." style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;fontStyle=0;size=0;position=0.17;position2=0.54;base=39;" vertex="1" parent="1">
           <mxGeometry x="570" y="1330" width="240" height="100" as="geometry" />
         </mxCell>
       </root>
