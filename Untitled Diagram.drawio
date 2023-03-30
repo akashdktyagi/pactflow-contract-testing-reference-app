@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-30T08:59:55.290Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="_SSDPgOQOTQxIpv-GC-a" version="21.1.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-30T09:51:02.111Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="CA2zYbCuoZUCHwv6qnuU" version="21.1.2" type="github">
   <diagram name="Page-1" id="hXCuwG57mc-VUr_f1HP0">
     <mxGraphModel dx="1290" dy="676" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -61,6 +61,60 @@
         </mxCell>
         <mxCell id="xuCpeB7rJ87xg6paWrhZ-19" value="&lt;h1&gt;Relationship between Employer and Employee&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="167.5" y="40" width="565" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-20" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="40" y="710" as="sourcePoint" />
+            <mxPoint x="760" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-21" value="Spring Boot API" style="swimlane;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="800" width="400" height="740" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-25" value="Test Code" style="swimlane;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="xuCpeB7rJ87xg6paWrhZ-21">
+          <mxGeometry x="57.5" y="250" width="292.5" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-28" value="unit tests" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="xuCpeB7rJ87xg6paWrhZ-25">
+          <mxGeometry x="62.5" y="50" width="147.5" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-29" value="integration tests" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="xuCpeB7rJ87xg6paWrhZ-25">
+          <mxGeometry x="67.5" y="162.5" width="142.5" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-30" value="Contract Tests" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="xuCpeB7rJ87xg6paWrhZ-25">
+          <mxGeometry x="67.5" y="290" width="152.5" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-37" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="xuCpeB7rJ87xg6paWrhZ-25">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="194.5" as="sourcePoint" />
+            <mxPoint x="402" y="194.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-26" value="Source Code" style="swimlane;whiteSpace=wrap;html=1;fontStyle=0" vertex="1" parent="xuCpeB7rJ87xg6paWrhZ-21">
+          <mxGeometry x="60" y="60" width="290" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-27" value="src/main/java" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="xuCpeB7rJ87xg6paWrhZ-26">
+          <mxGeometry x="55" y="55" width="180" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-41" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="xuCpeB7rJ87xg6paWrhZ-21">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="277.5" y="570" as="sourcePoint" />
+            <mxPoint x="469.5" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-35" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="xuCpeB7rJ87xg6paWrhZ-28" target="xuCpeB7rJ87xg6paWrhZ-36">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="1220" as="sourcePoint" />
+            <mxPoint x="540" y="1120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-36" value="Tests classes and methods.&lt;br&gt;Used for calculating Code coverage" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="560" y="1110" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-40" value="Tests your MVC. You bring SpringBootContext up and test your controller." style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="560" y="1220" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-42" value="3rd type of test. This you write to validate how well you integrate to another API or Component.&lt;br&gt;These kind of tests gives you confidence to modify your API with out worrying about the impact your change would cause on other API." style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;fontStyle=1;size=0;position=0.17;position2=0.54;base=39;" vertex="1" parent="1">
+          <mxGeometry x="570" y="1330" width="240" height="100" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
