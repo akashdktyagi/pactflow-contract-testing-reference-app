@@ -8,11 +8,11 @@ logging:
       springframework:
         web: TRACE
 
-pactbroker:
-  host: "localhost"
-  port: "8000"
-  protocol: "http"
-  auth:
-    username: "pact_workshop"
-    password: "pact_workshop"
+#pactbroker:
+#  host: "localhost"
+#  port: "8000"
+#  protocol: "http"
+#  auth:
+#    username: "pact_workshop"
+#    password: "pact_workshop"
 
