@@ -1,9 +1,67 @@
-<mxfile host="app.diagrams.net" modified="2023-03-30T08:49:34.901Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" version="21.1.2" etag="akQFIOtxFQNrsm03UEHu" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-30T08:59:01.361Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="_dyJMiMs7hk_v53ZxEwy" version="21.1.2" type="github">
   <diagram name="Page-1" id="hXCuwG57mc-VUr_f1HP0">
-    <mxGraphModel>
+    <mxGraphModel dx="1290" dy="676" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="xuCpeB7rJ87xg6paWrhZ-1" target="xuCpeB7rJ87xg6paWrhZ-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-12" value="Generates" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" vertex="1" connectable="0" parent="xuCpeB7rJ87xg6paWrhZ-11">
+          <mxGeometry x="-0.2143" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-1" value="Employer&lt;br&gt;(Consumer)" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-2" value="Employee&lt;br&gt;(Provider)" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="600" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-10" value="&lt;b&gt;This pact file is downloaded from the broker&lt;br&gt;and is used to automatically generate the&lt;br&gt;tests in the Provider.&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="xuCpeB7rJ87xg6paWrhZ-3" target="xuCpeB7rJ87xg6paWrhZ-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-3" value="Pact Flow&lt;br&gt;(Broker)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="357.5" y="290" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-4" value="&lt;h1&gt;Employer Service&lt;/h1&gt;&lt;p&gt;&lt;b&gt;Employer&lt;/b&gt;&amp;nbsp;c&lt;i&gt;onsumes&lt;/i&gt; the service of the &lt;b&gt;Employee&lt;/b&gt; and hence is a perfect example of being called as &quot;&lt;b&gt;Consumer&lt;/b&gt;&quot; in contract testing context.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="550" width="225" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-5" value="&lt;h1&gt;Employee Service&amp;nbsp;&lt;/h1&gt;&lt;p&gt;&lt;b&gt;Employee&lt;/b&gt;&amp;nbsp;provides its services to the &lt;b&gt;Employer&lt;/b&gt;&amp;nbsp;and hence is a good example of a &quot;&lt;b&gt;Provider&lt;/b&gt;&quot;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="540" width="225" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-9" value="&lt;b&gt;Uploaded to&amp;nbsp;&lt;br&gt;a Central Server&amp;nbsp;&lt;br&gt;called as broker.&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.35;entryY=0.988;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="xuCpeB7rJ87xg6paWrhZ-6" target="xuCpeB7rJ87xg6paWrhZ-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-6" value="Pact Json File" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.cloud_services_configuration_file;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="485" width="47.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="xuCpeB7rJ87xg6paWrhZ-13" target="xuCpeB7rJ87xg6paWrhZ-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-16" value="Calls" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" vertex="1" connectable="0" parent="xuCpeB7rJ87xg6paWrhZ-15">
+          <mxGeometry x="-0.0767" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-13" value="Employer&lt;br&gt;(Consumer)" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="95" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-14" value="Employee&lt;br&gt;(Provider)" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="612.5" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-17" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="80" y="260" as="sourcePoint" />
+            <mxPoint x="740" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-18" value="&lt;h1&gt;Flow of Events&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="230" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xuCpeB7rJ87xg6paWrhZ-19" value="&lt;h1&gt;Relationship between Two Services&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="215" y="40" width="490" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
