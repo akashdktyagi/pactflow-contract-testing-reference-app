@@ -47,7 +47,7 @@ public class ConsumerPactTest {
                             o.integerType("id", 1);
                             o.stringType("name", "Akash");
                             o.stringType("phone", "342424");
-                            o.stringType("salary", "5000");
+                            o.stringType("salary", "100");
                         })).build())
                 .toPact();
     }
@@ -59,7 +59,7 @@ public class ConsumerPactTest {
                 .method("GET")
                 .path("/employee/9999")
                 .willRespondWith()
-                .status(400)
+                .status(404)
                 .toPact();
     }
 
@@ -81,7 +81,7 @@ public class ConsumerPactTest {
                             o.integerType("id", 1);
                             o.stringType("name", "Akash");
                             o.stringType("phone", "342424");
-                            o.stringType("salary", "5000");
+                            o.stringType("salary", "100");
                         }).build())
                 .toPact();
     }
@@ -101,7 +101,7 @@ public class ConsumerPactTest {
                 .withDepartment("HR")
                 .withDesignation("Manager")
                 .withPhone("342424")
-                .withSalary("5000").build();
+                .withSalary("100").build();
         List<Employee> employeeListExpected = Arrays.asList(employee,employee);
 
         ResponseEntity<Employee[]> responseEntity = employeeService.getListOfEmployees();
@@ -123,7 +123,7 @@ public class ConsumerPactTest {
                 .withDepartment("HR")
                 .withDesignation("Manager")
                 .withPhone("342424")
-                .withSalary("5000").build();
+                .withSalary("100").build();
 
         ResponseEntity<Employee> responseEntity = employeeService.getEmployeeByEmpID("1");
         Assertions.assertThat(responseEntity.getBody()).isEqualTo(employee);
