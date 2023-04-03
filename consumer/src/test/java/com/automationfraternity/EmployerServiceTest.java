@@ -17,7 +17,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 /**
- * These Tests are written just to show case how wiremock server can be used to write the tests which are depdenendent on an external API.
+ * These Tests are written just to showcase how wiremock server can be used to write the tests which are depdenendent on an external API.
  * Using Wire Mock we can mock the responses from this Provider.
  * Similar thing we can do using Pact but with Pact you can also generate the Expectation file along with the test cases.
  */

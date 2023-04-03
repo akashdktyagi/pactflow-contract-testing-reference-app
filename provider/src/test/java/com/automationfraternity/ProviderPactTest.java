@@ -5,6 +5,8 @@ import au.com.dius.pact.provider.junit5.PactVerificationContext;
 import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvider;
 import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.State;
+import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
+import au.com.dius.pact.provider.junitsupport.loader.PactBrokerAuth;
 import au.com.dius.pact.provider.junitsupport.loader.PactFolder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestTemplate;
@@ -13,13 +15,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+
+//@PactFolder("/Users/akashtyagi/IdeaProjects/pactflow-contract-testing-reference-app/consumer/target/pacts")
 @Provider("EmployeeServiceAPI")
-@PactFolder("/Users/akashtyagi/IdeaProjects/pactflow-contract-testing-reference-app/consumer/target/pacts")
-//@PactBroker(
-//        host = "localhost",
-//        port = "8000",
-//        authentication = @PactBrokerAuth(username = "pact_workshop", password = "pact_workshop")
-//)
+@PactBroker(
+        host = "localhost",
+        port = "8000",
+        authentication = @PactBrokerAuth(username = "pact", password = "pact")
+)
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ProviderPactTest {
