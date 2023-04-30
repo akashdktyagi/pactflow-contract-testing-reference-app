@@ -6,9 +6,9 @@ import java.util.List;
 
 @Service
 public class EmployeeService {
-    Employee employee1 = Employee.builder().withId(1).withEmpId(1).withName("Akash").withAge(56).withEmail("a@a.com").withDepartment("HR").withDesignation("recruiter").withPhone("34535").withSalary(100L).build();
-    Employee employee2 = Employee.builder().withId(2).withEmpId(2).withName("Amit").withAge(56).withEmail("b@b.com").withDepartment("IT").withDesignation("manager").withPhone("34535").withSalary(200L).build();
-    Employee employee3 = Employee.builder().withId(3).withEmpId(3).withName("Sumit").withAge(56).withEmail("s@s.com").withDepartment("finance").withDesignation("director").withPhone("34535").withSalary(300L).build();
+    Employee employee1 = Employee.builder().withId(1).withEmpId(1).withName("Akash").withAge(56).withEmail("a@a.com").withDepartment("HR").withDesignation("recruiter").withPhone("34535").withSalary("100").build();
+    Employee employee2 = Employee.builder().withId(2).withEmpId(2).withName("Amit").withAge(56).withEmail("b@b.com").withDepartment("IT").withDesignation("manager").withPhone("34535").withSalary("200").build();
+    Employee employee3 = Employee.builder().withId(3).withEmpId(3).withName("Sumit").withAge(56).withEmail("s@s.com").withDepartment("finance").withDesignation("director").withPhone("34535").withSalary("300").build();
 
     public List<Employee> getAllEmployee(){
         List<Employee> listOfEmployee = new ArrayList<>();
