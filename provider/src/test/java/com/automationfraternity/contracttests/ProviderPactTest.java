@@ -1,4 +1,4 @@
-package com.automationfraternity;
+package com.automationfraternity.contracttests;
 
 import au.com.dius.pact.provider.junit5.HttpTestTarget;
 import au.com.dius.pact.provider.junit5.PactVerificationContext;

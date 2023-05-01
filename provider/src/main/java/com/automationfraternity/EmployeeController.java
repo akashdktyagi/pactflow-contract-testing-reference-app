@@ -18,8 +18,13 @@ import java.util.List;
 @Tag(name = "Employee Service - I Am a Provider to Employer Service")
 public class EmployeeController {
 
-    @Autowired
+
     EmployeeService employeeService;
+
+    @Autowired
+    public EmployeeController(EmployeeService employeeService){
+        this.employeeService = employeeService;
+    }
 
     @GetMapping("/employee")
     public ResponseEntity<String> getAllEmployee() throws JsonProcessingException {
