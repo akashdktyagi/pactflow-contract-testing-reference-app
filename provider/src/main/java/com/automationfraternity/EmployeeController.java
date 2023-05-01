@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@Tag(name = "I Am a Provider")
+@Tag(name = "Employee Service - I Am a Provider to Employer Service")
 public class EmployeeController {
 
     @Autowired

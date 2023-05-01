@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin("*")
-@Tag(name = "I Am a Consumer")
+@Tag(name = "Employer Service - I Am a Consumer of Employee Service")
 public class EmployerRestController {
 
     @Autowired

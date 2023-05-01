@@ -45,3 +45,8 @@ Will Generate, example values
 
 #### Usefull Links:
 https://docs.pact.io/getting_started/matching
+
+##
+Sudo lsof -i:5432
+
+Kill -9 <p_id>
