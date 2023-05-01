@@ -16,7 +16,7 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 
-@PactFolder("/Users/akashtyagi/IdeaProjects/pactflow-contract-testing-reference-app/provider/test/java/resources")
+@PactFolder("/Users/akashtyagi/IdeaProjects/pactflow-contract-testing-reference-app/provider/src/test/resources/pacts")
 @Provider("EmployeeServiceAPI")
 //@PactBroker(
 //        host = "localhost",
