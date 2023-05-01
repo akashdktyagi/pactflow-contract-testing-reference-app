@@ -32,7 +32,7 @@ public class EmployeeServiceTest {
         EmployeeService employeeService = new EmployeeService();
         Employee employee = employeeService.getEmployeeWithEmpID("1");
         Assertions.assertThat(employee).isInstanceOf(Employee.class);
-        Assertions.assertThat(employee.getSalary()).isInstanceOf(String.class);
+        Assertions.assertThat(employee.getSalary()).isInstanceOf(Long.class);
     }
 
     @Test

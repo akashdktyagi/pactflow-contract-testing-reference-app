@@ -21,6 +21,6 @@ public class Employee {
     String email;
     String phone;
     String department;
-    String salary;
+    Long salary;
     String designation;
 }
