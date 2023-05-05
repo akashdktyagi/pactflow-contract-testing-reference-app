@@ -18,10 +18,13 @@ import java.util.List;
 @ExtendWith(MockitoExtension.class)
 public class EmployeeControllerTest {
 
-    @Mock
-    EmployeeService employeeService;
-    @InjectMocks
+    EmployeeService employeeService = new EmployeeService();
+
     EmployeeController employeeController;
+
+    public EmployeeControllerTest(){
+        employeeController = new EmployeeController(employeeService);
+    }
 
     @Test
     public void testGetAllEmployee() throws JsonProcessingException {
@@ -31,5 +34,10 @@ public class EmployeeControllerTest {
     @Test
     public void testGetBEmployeeById() throws JsonProcessingException {
         Assertions.assertThat(employeeController.getEmployeeWithEmployeeId("1")).isInstanceOf(ResponseEntity.class);
+    }
+
+    @Test
+    public void testGetBEmployeeByIdNotFound() throws JsonProcessingException {
+        Assertions.assertThat(employeeController.getEmployeeWithEmployeeId("9999")).isInstanceOf(ResponseEntity.class);
     }
 }
